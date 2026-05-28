@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Social Media Time Limiter</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #111;
+      --ink-soft: #444;
+      --ink-muted: #888;
+      --rule: #e0e0e0;
+      --accent: #d62020;
+      --accent-soft: #fdf0f0;
+      --bg: #faf9f7;
+      --white: #fff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Header ── */
+    header {
+      background: var(--white);
+      border-bottom: 1px solid var(--rule);
+      padding: 0 40px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .header-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .logo-icon {
+      width: 30px; height: 30px;
+      background: var(--accent);
+      border-radius: 7px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+    .logo-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink);
+      letter-spacing: -0.2px;
+    }
+    .header-tag {
+      font-size: 12px;
+      color: var(--ink-muted);
+      font-family: 'DM Mono', monospace;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      background: var(--white);
+      border-bottom: 1px solid var(--rule);
+      padding: 64px 40px 52px;
+    }
+    .hero-inner {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .hero-eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+    .hero-title {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(36px, 5vw, 52px);
+      line-height: 1.1;
+      letter-spacing: -1px;
+      color: var(--ink);
+      margin-bottom: 16px;
+    }
+    .hero-sub {
+      font-size: 15px;
+      color: var(--ink-soft);
+      max-width: 520px;
+      font-weight: 300;
+    }
+    .hero-meta {
+      margin-top: 28px;
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .meta-chip {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--ink-muted);
+    }
+    .meta-chip::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    /* ── Content ── */
+    .content {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 56px 40px 80px;
+    }
+
+    .tl-dr {
+      background: var(--accent-soft);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 10px 10px 0;
+      padding: 20px 24px;
+      margin-bottom: 52px;
+    }
+    .tl-dr-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 8px;
+    }
+    .tl-dr p {
+      font-size: 15px;
+      color: var(--ink);
+      font-weight: 500;
+      line-height: 1.6;
+    }
+
+    section {
+      margin-bottom: 44px;
+    }
+    .section-num {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--accent);
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    h2 {
+      font-family: 'Instrument Serif', serif;
+      font-size: 24px;
+      letter-spacing: -0.3px;
+      color: var(--ink);
+      margin-bottom: 14px;
+      line-height: 1.2;
+    }
+    p {
+      color: var(--ink-soft);
+      font-size: 15px;
+      margin-bottom: 12px;
+      font-weight: 300;
+    }
+    p:last-child { margin-bottom: 0; }
+
+    ul {
+      list-style: none;
+      margin: 14px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 15px;
+      color: var(--ink-soft);
+      font-weight: 300;
+    }
+    li::before {
+      content: '→';
+      color: var(--accent);
+      font-family: 'DM Mono', monospace;
+      font-size: 13px;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    .permission-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 14px;
+    }
+    .permission-table th {
+      text-align: left;
+      padding: 10px 14px;
+      background: var(--ink);
+      color: var(--white);
+      font-weight: 600;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .permission-table th:first-child { border-radius: 8px 0 0 0; }
+    .permission-table th:last-child { border-radius: 0 8px 0 0; }
+    .permission-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--rule);
+      color: var(--ink-soft);
+      font-weight: 300;
+    }
+    .permission-table tr:last-child td { border-bottom: none; }
+    .permission-table tr:nth-child(even) td { background: rgba(0,0,0,0.015); }
+    code {
+      font-family: 'DM Mono', monospace;
+      font-size: 13px;
+      background: #f0f0f0;
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: var(--accent);
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid var(--rule);
+      margin: 8px 0 44px;
+    }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--rule);
+      background: var(--white);
+      padding: 28px 40px;
+    }
+    .footer-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-copy {
+      font-size: 13px;
+      color: var(--ink-muted);
+    }
+    .footer-email {
+      font-size: 13px;
+      color: var(--accent);
+      text-decoration: none;
+      font-family: 'DM Mono', monospace;
+    }
+    .footer-email:hover { text-decoration: underline; }
+
+    @media (max-width: 600px) {
+      header, .hero, footer { padding-left: 20px; padding-right: 20px; }
+      .content { padding: 40px 20px 60px; }
+      .hero-meta { gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="logo-wrap" href="#">
+      <div class="logo-icon">⏱</div>
+      <span class="logo-name">Social Media Time Limiter</span>
+    </a>
+    <span class="header-tag">Chrome Extension</span>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Legal</div>
+    <h1 class="hero-title">Privacy Policy</h1>
+    <p class="hero-sub">How the Social Media Time Limiter Chrome Extension handles your data — clearly, honestly, and without jargon.</p>
+    <div class="hero-meta">
+      <span class="meta-chip">Effective: June 2025</span>
+      <span class="meta-chip">Last updated: June 2025</span>
+      <span class="meta-chip">Version 1.0</span>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+
+  <div class="tl-dr">
+    <div class="tl-dr-label">TL;DR — The short version</div>
+    <p>We collect nothing. Your data never leaves your device. No servers, no accounts, no tracking, no ads. Everything the extension stores stays inside your own browser.</p>
+  </div>
+
+  <section>
+    <div class="section-num">01</div>
+    <h2>Overview</h2>
+    <p>Social Media Time Limiter ("the Extension") is a Chrome browser extension that helps users track and limit the time they spend on Facebook and Instagram. This Privacy Policy explains what data the Extension accesses, what it stores, and how it is used.</p>
+    <p>The Extension is operated by an independent developer and is not affiliated with Meta, Facebook, Instagram, or Google.</p>
+  </section>
+
+  <hr />
+
+  <section>
+    <div class="section-num">02</div>
+    <h2>Data We Collect</h2>
+    <p><strong>We collect no personal data.</strong> The Extension does not collect, transmit, store on external servers, or share any personally identifiable information (PII) of any kind.</p>
+    <p>The only data the Extension stores is:</p>
+    <ul>
+      <li>Your chosen daily time limit (e.g. "30 minutes") — stored locally in your browser</li>
+      <li>Your daily usage count in seconds — stored locally in your browser, reset each midnight</li>
+      <li>Whether the Extension is enabled or paused — stored locally in your browser</li>
+    </ul>
+    <p>This data exists solely on your device using Chrome's built-in <code>chrome.storage.local</code> API. It is never transmitted anywhere.</p>
+  </section>
+
+  <hr />
+
+  <section>
+    <div class="section-num">03</div>
+    <h2>Permissions Explained</h2>
+    <p>The Extension requests the following Chrome permissions. Here is exactly why each one is needed:</p>
+    <table class="permission-table">
+      <thead>
+        <tr>
+          <th>Permission</th>
+          <th>Why it's needed</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>tabs</code></td>
+          <td>To detect when the active tab is on facebook.com or instagram.com so time tracking can begin. The Extension only reads the tab URL — no page content is accessed.</td>
+        </tr>
+        <tr>
+          <td><code>storage</code></td>
+          <td>To save your time limit and daily usage count locally on your own device. Nothing is uploaded to any server.</td>
+        </tr>
+        <tr>
+          <td><code>notifications</code></td>
+          <td>To send a browser notification when your daily time limit is reached.</td>
+        </tr>
+        <tr>
+          <td><code>alarms</code></td>
+          <td>To run a background check every 10 seconds while the browser is open, so usage time is tracked accurately.</td>
+        </tr>
+        <tr>
+          <td>Host access to <code>facebook.com</code>, <code>instagram.com</code></td>
+          <td>To inject a visual overlay (red screen alert) directly onto these pages when the limit is exceeded. No content from these pages is read or transmitted.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <hr />
+
+  <section>
+    <div class="section-num">04</div>
+    <h2>Data Sharing</h2>
+    <p>We do not share any data with any third party — because we do not collect any data to share.</p>
+    <ul>
+      <li>No analytics services are used</li>
+      <li>No advertising networks are integrated</li>
+      <li>No external APIs are called</li>
+      <li>No usage statistics are sent to any server</li>
+    </ul>
+  </section>
+
+  <hr />
+
+  <section>
+    <div class="section-num">05</div>
+    <h2>Remote Code</h2>
+    <p>The Extension does not use or load any remote code. All JavaScript is bundled locally within the Extension package. No code is fetched from external servers at runtime.</p>
+  </section>
+
+  <hr />
+
+  <section>
+    <div class="section-num">06</div>
+    <h2>Children's Privacy</h2>
+    <p>The Extension does not knowingly collect any data from any user, including children under the age of 13. Since no data is collected at all, this Extension is safe to use by users of any age.</p>
+  </section>
+
+  <hr />
+
+  <section>
+    <div class="section-num">07</div>
+    <h2>Changes to This Policy</h2>
+    <p>If this Privacy Policy is updated in future, the new version will be published at this same URL with an updated "Last updated" date at the top of the page. Continued use of the Extension after any changes constitutes acceptance of the updated policy.</p>
+  </section>
+
+  <hr />
+
+  <section>
+    <div class="section-num">08</div>
+    <h2>Contact</h2>
+    <p>If you have any questions about this Privacy Policy or the Extension, please contact us at:</p>
+    <p><a href="mailto:abdullahiqbalbloch@gmail.com" style="color:var(--accent);font-family:'DM Mono',monospace;font-size:14px;">abdullahiqbalbloch@gmail.com</a></p>
+  </section>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <span class="footer-copy">© 2025 Social Media Time Limiter. All rights reserved.</span>
+    <a href="mailto:abdullahiqbalbloch@gmail.com" class="footer-email">abdullahiqbalbloch@gmail.com</a>
+  </div>
+</footer>
+
+</body>
+</html>
